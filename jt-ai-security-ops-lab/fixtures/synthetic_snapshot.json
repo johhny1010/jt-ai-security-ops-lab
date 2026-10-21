@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "classification": "SYNTHETIC_DEMONSTRATION_DATA",
+    "description": "Entirely fictional topology, counters, names and addresses; NOT exported from any live lab.",
+    "collected_at_utc": "2026-01-01T00:00:00Z",
+    "collector_status": "fixture_only"
+  },
+  "topology": {
+    "network_names": ["trusted", "servers", "iot"],
+    "gateways": ["10.250.10.1", "10.250.30.1", "10.250.70.1"],
+    "wan_example": "198.51.100.2"
+  },
+  "opnsense": {
+    "status": "synthetic",
+    "interfaces": [
+      {"name": "wan", "description": "WAN", "address": "198.51.100.2", "link": "up", "vlan": null},
+      {"name": "trusted", "description": "TRUSTED", "address": "10.250.10.1", "link": "up", "vlan": 10},
+      {"name": "servers", "description": "SERVERS", "address": "10.250.30.1", "link": "up", "vlan": 30},
+      {"name": "iot", "description": "IOT", "address": "10.250.70.1", "link": "up", "vlan": 70}
+    ],
+    "gateways": [
+      {"name": "wan-gateway", "address": "198.51.100.1", "status": "online", "loss_pct": 0.0, "rtt_ms": 9.4},
+      {"name": "backup-gateway", "address": "203.0.113.1", "status": "unknown", "loss_pct": null, "rtt_ms": null}
+    ],
+    "arp": [
+      {"ip": "10.250.10.1", "mac": "02:00:00:00:10:01", "hostname": "lab-gateway", "interface": "trusted"},
+      {"ip": "10.250.10.10", "mac": "02:00:00:00:10:10", "hostname": "workstation", "interface": "trusted"},
+      {"ip": "10.250.10.25", "mac": "02:00:00:00:10:25", "hostname": "ai-node", "interface": "trusted"},
+      {"ip": "10.250.10.40", "mac": "02:00:00:00:10:40", "hostname": "storage", "interface": "trusted"},
+      {"ip": "10.250.30.20", "mac": "02:00:00:00:30:20", "hostname": "app-node", "interface": "servers"},
+      {"ip": "10.250.70.50", "mac": "02:00:00:00:70:50", "hostname": "sensor-a", "interface": "iot"},
+      {"ip": "10.250.10.30", "mac": "02:00:00:00:10:aa", "hostname": "", "interface": "trusted"},
+      {"ip": "10.250.10.31", "mac": "02:00:00:00:10:aa", "hostname": "", "interface": "trusted"},
+      {"ip": "10.250.70.1", "mac": "02:00:00:00:70:01", "hostname": "lab-gateway", "interface": "iot"}
+    ],
+    "dhcp": [
+      {"ip": "10.250.10.10", "mac": "02:00:00:00:10:10", "hostname": "workstation", "lease_state": "leased"},
+      {"ip": "10.250.10.25", "mac": "02:00:00:00:10:25", "hostname": "ai-node", "lease_state": "leased"},
+      {"ip": "10.250.70.50", "mac": "02:00:00:00:70:50", "hostname": "sensor-a", "lease_state": "leased"},
+      {"ip": "10.250.10.70", "mac": "02:00:00:00:10:70", "hostname": "guest-laptop", "lease_state": "leased"},
+      {"ip": "10.250.10.30", "mac": "02:00:00:00:10:30", "hostname": "lab-client", "lease_state": "leased"}
+    ],
+    "traffic": {
+      "trusted": {"rx_bytes": 2800000, "tx_bytes": 1400000},
+      "servers": {"rx_bytes": 900000, "tx_bytes": 1300000},
+      "iot": {"rx_bytes": 140000, "tx_bytes": 70000}
+    },
+    "firewall_statistics": {
+      "blocked": 42,
+      "allowed": 117,
+      "note": "Illustrative counters, not individual events or proof of intrusion"
+    }
+  },
+  "remote_linux": [
+    {"host": "linux-collector", "status": "ok", "cpu_pct": 12.1, "memory_pct": 34.0, "disk_pct": 22.0},
+    {"host": "dns-node", "status": "ok", "cpu_pct": 6.3, "memory_pct": 27.0, "disk_pct": 18.2},
+    {"host": "app-node", "status": "ok", "cpu_pct": 17.9, "memory_pct": 41.0, "disk_pct": 33.8}
+  ],
+  "ai": {
+    "inference_endpoint": "demo-only",
+    "model_family": "Qwen (representative)",
+    "gpu_samples": [
+      {"label": "gpu-inference", "memory_used_mib": 6200, "memory_total_mib": 12288, "utilization_pct": 28},
+      {"label": "gpu-general", "memory_used_mib": 18200, "memory_total_mib": 24576, "utilization_pct": 45}
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "NOTICE": "FICTIONAL PUBLIC CONFIGURATION - NEVER DEPLOY WITHOUT REVIEW",
+  "site": "example-cyberlab",
+  "management": {
+    "firewall": "fw.lab.example",
+    "authentication": "service identity with least-privilege access; no secrets in config",
+    "tls": "verify certificate chain and hostname; no insecure TLS fallback"
+  },
+  "segments": [
+    {"name": "trusted", "vlan_id": 10, "cidr": "10.250.10.0/24", "gateway": "10.250.10.1", "purpose": "management and operator devices"},
+    {"name": "servers", "vlan_id": 30, "cidr": "10.250.30.0/24", "gateway": "10.250.30.1", "purpose": "application infrastructure"},
+    {"name": "iot", "vlan_id": 70, "cidr": "10.250.70.0/24", "gateway": "10.250.70.1", "purpose": "lower-trust devices"}
+  ],
+  "security_design": {
+    "principle": "default-deny cross-zone with documented exceptions",
+    "rule_testing": "validate from endpoints inside each VLAN; do not equate gateway pings with isolation",
+    "write_execution": "separate privileged service; explicit approval for material changes"
+  },
+  "data": "fixture only; no current infrastructure details"
+}

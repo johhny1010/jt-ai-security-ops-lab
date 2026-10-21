@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jt-cyber-ai-lab-demo"
+version = "0.1.0"
+description = "Sanitized, offline-first AI security-operations portfolio demonstration"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "JT Corbin"}]
+keywords = ["cybersecurity", "ai", "soc", "opnsense", "python", "ollama", "homelab"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

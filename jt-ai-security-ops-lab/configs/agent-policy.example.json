@@ -1,0 +1,28 @@
+{
+  "NOTICE": "Portfolio-only example policy, NOT an operational authorization mechanism",
+  "read_tools": [
+    "get_network_summary",
+    "get_device_inventory",
+    "get_gateway_status",
+    "get_interface_status",
+    "get_firewall_statistics",
+    "get_linux_health",
+    "lookup_ip"
+  ],
+  "write_tools_exposed_to_public_demo": [],
+  "proposed_write_action_control": {
+    "human_approval": "required",
+    "authorizer": "separately authenticated trusted execution service",
+    "approval_lifetime_seconds_max": 600,
+    "verification": "read back current state after execution",
+    "audit": "write immutable event log in production implementation",
+    "rollback": "change-specific recovery plan for high-impact operations"
+  },
+  "max_tool_rounds": 5,
+  "source_freshness_minutes": 15,
+  "claims": {
+    "observed_ip_is_online": false,
+    "blocked_packet_proves_attack": false,
+    "no_reported_cve_means_vulnerability_free": false
+  }
+}

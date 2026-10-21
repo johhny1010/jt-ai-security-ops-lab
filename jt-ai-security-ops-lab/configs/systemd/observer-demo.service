@@ -1,0 +1,26 @@
+# Illustrative hardening sketch only. Not a deployment-ready unit.
+# Only handles fictional telemetry; no firewall credentials or administrator privileges.
+[Unit]
+Description=Cyber Lab Demo - Synthetic Observer
+After=network.target
+
+[Service]
+Type=oneshot
+User=cyberlab-demo
+Group=cyberlab-demo
+WorkingDirectory=/opt/cyberlab-demo
+Environment=PYTHONPATH=/opt/cyberlab-demo/src
+ExecStart=/usr/bin/python3 -m cyberlab_demo summary
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+RestrictAddressFamilies=AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

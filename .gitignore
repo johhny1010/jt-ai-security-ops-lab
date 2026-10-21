@@ -1,0 +1,46 @@
+# Credentials, production configurations, real topology, and private keys
+.env
+.env.*
+!.env.example
+**/secrets.env
+**/*secret*.json
+**/*credential*.json
+**/config.xml
+**/topology.json
+**/latest.json
+**/known_hosts
+**/id_ed25519*
+**/*.pem
+**/*.key
+**/*.crt
+**/*.p12
+**/*.pfx
+**/*.pub
+**/*.ovpn
+**/*.tfstate*
+**/*.pcap
+**/*.pcapng
+**/*.sqlite*
+**/*.db
+**/*.log
+**/*.bak
+**/*.backup*
+*.tar.gz
+*.zip
+*.docx
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.coverage
+htmlcov/
+# IDE and generated test artifacts
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
